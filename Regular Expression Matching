@@ -1,0 +1,24 @@
+class Solution {
+    public boolean isMatch(String s, String p) {
+       String a ="*" ;
+       String b ="." ;
+
+       for(int i = 0; i<s.length; i++)
+       {
+        if (s.charAt(i)==t.charAt(i))
+        {
+            s.charAt(i)==a.charAt(0)||s.charAt(i)==b.charAt(0)
+            {
+                  boolean c =True;
+            }
+          
+        }
+        else
+        {
+            break;
+         boolean return False;
+        }
+       }
+       return c;
+    }
+}
