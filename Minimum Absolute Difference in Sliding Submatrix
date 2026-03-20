@@ -13,8 +13,7 @@ class Solution {
                 for (int x = i; x < i + k; x++) {
                     for (int y = j; y < j + k; y++) {
                         temp.add(grid[x][y]);
-                    }
-                }
+                    }          }
 
                 if (k == 1) {
                     ans[i][j] = 0;
