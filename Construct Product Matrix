@@ -16,8 +16,10 @@ class Solution {
         }
 
         long prefix = 1;
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
+        for (int i = 0; i < n; i++) 
+{
+            for (int j = 0; j < m; j++) 
+{
                 p[i][j] = (int) (((long) p[i][j] * prefix) % MOD);
                 prefix = (prefix * grid[i][j]) % MOD;
             }
