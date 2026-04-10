@@ -1,17 +1,61 @@
 class Solution {
     public int minimumDistance(int[] nums) {
-        int ans = Integer.MAX_VALUE;
-        for(int i = 0; i < nums.length - 2; i++) {
-            for(int j = i + 1; j < nums.length - 1; j++) {
-                if(nums[j] != nums[i]) continue;
-                for(int k = j + 1; k < nums.length; k++) {
-                    if(nums[j] == nums[k]) {
-                        ans = Math.min(ans , (j - i) + (k - j) + (k - i));
-                    }
-                }
+        int min = Integer.MAX_VALUE;
+        int[] first = new int[101];
+        int[] second = new int[101];
+
+        Arrays.fill(first, -1);
+        Arrays.fill(second, -1);
+
+        for (int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+
+            if (first[num] == -1) {
+                first[num] = i;
+            } else if (second[num] == -1) {
+                second[num] = i;
+            } else {
+                int distance = Math.abs(first[num] - second[num]) 
+                             + Math.abs(second[num] - i) 
+                             + Math.abs(i - first[num]);
+
+                first[num] = second[num];
+                second[num] = i;
+
+                min = Math.min(min, distance);
             }
         }
-        if(ans == Integer.MAX_VALUE) return -1;
-        return ans;
+
+        return (min == Integer.MAX_VALUE) ? -1 : min;
+    }
+}class Solution {
+    public int minimumDistance(int[] nums) {
+        int min = Integer.MAX_VALUE;
+        int[] first = new int[101];
+        int[] second = new int[101];
+
+        Arrays.fill(first, -1);
+        Arrays.fill(second, -1);
+
+        for (int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+
+            if (first[num] == -1) {
+                first[num] = i;
+            } else if (second[num] == -1) {
+                second[num] = i;
+            } else {
+                int distance = Math.abs(first[num] - second[num]) 
+                             + Math.abs(second[num] - i) 
+                             + Math.abs(i - first[num]);
+
+                first[num] = second[num];
+                second[num] = i;
+
+                min = Math.min(min, distance);
+            }
+        }
+
+        return (min == Integer.MAX_VALUE) ? -1 : min;
     }
 }
